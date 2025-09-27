@@ -39,7 +39,7 @@ npm install
 3. Edit `src/screens/ExploreScreen.tsx` and set `API_BASE` to your backend URL (for local development use `http://<YOUR_PC_IP>:4000/api` or Expo Tunnel).
 4. Start the Expo app:
 ```bash
-npm start
+npm expo start
 ```
 5. Open in Expo Go or emulator.
 

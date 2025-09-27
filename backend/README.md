@@ -18,18 +18,19 @@ It acts as a **proxy API** to fetch live market data from Yahoo Finance (via [`y
 
 ## Project Structure
 
-backend/<br/>
-├── src/<br/>
-│ ├── index.ts # Entry point - Express app<br/>
-│ ├── routes/<br/>
-│ │ └── stocks.ts # Defines stock-related API routes<br/>
-│ └── services/<br/>
-│ └── stocksService.ts # Business logic - Yahoo Finance integration<br/>
-├── .gitignore # Ignore node_modules, env files, etc.<br/>
-├── package.json # NPM dependencies and scripts<br/>
-├── package-lock.json<br/>
-└── tsconfig.json # TypeScript compiler options<br/>
-
+```plaintext
+backend/
+├── src/
+│ ├── index.ts # Entry point - Express app
+│ ├── routes/
+│ │ └── stocks.ts # Defines stock-related API routes
+│ └── services/
+│ └── stocksService.ts # Business logic - Yahoo Finance integration
+├── .gitignore # Ignore node_modules, env files, etc.
+├── package.json # NPM dependencies and scripts
+├── package-lock.json
+└── tsconfig.json # TypeScript compiler options
+```
 
 ---
 

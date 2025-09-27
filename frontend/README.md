@@ -92,7 +92,11 @@ const BASE_URL = "https://your-deployed-backend.onrender.com";
 
 ## Screenshots
 
+<img width="1918" height="971" alt="image" src="https://github.com/user-attachments/assets/16f043f3-d317-4bed-9188-aafa12a9b7be" />
+
 > *"Home tab (simple welcome screen)."*
+
+<img width="1918" height="900" alt="image" src="https://github.com/user-attachments/assets/f9da4f51-1a1e-496a-bb3b-3b73df169c11" />
 
 > *"Explore tab (with Market Snapshot, Gainers, Spotlight, News)."*
 

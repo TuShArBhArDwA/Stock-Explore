@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    // File paths
+    "rootDir": "./src",
+    "outDir": "./dist",
+
+    // Target environment
+    "module": "commonjs",         // Node.js uses CommonJS
+    "target": "es2020",           // modern JS features
+    "lib": ["es2020"],            // include modern JS libraries
+    "types": ["node"],            // load Node.js type definitions
+
+    // Output settings
+    "sourceMap": true,            // helpful for debugging
+    "esModuleInterop": true,      // makes 'import express from "express"' work
+    "resolveJsonModule": true,    // allows importing JSON files
+    "strict": true,               // strict type checks
+    "skipLibCheck": true,         // skip checking type defs of node_modules
+
+    // Module resolution
+    "moduleResolution": "node",
+    "isolatedModules": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"]
+}

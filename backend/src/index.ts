@@ -26,7 +26,7 @@ app.get("/", (req, res) => {
   });
 });
 
-app.use("/api", stocksRouter);
+app.use("/", stocksRouter);
 
 app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);

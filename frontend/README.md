@@ -1,50 +1,115 @@
-# Welcome to your Expo app 👋
+# Stock Explore Frontend
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Frontend of the **Stock Explore App**, built with **Expo React Native** and **React Navigation**.  
+It consumes the backend API (Express + Yahoo Finance) and renders the stock market data in a modern, card-based UI.  
 
-## Get started
+---
 
-1. Install dependencies
+## Features
 
-   ```bash
-   npm install
-   ```
+- **Market Snapshot**: Card view for indexes (S&P 500, NASDAQ, Dow Jones).  
+- **Stock Lists**: Tabbed view — *Top Gainers, Losers, Active* sorted by % change or volume.  
+- **Spotlight**: Card with stock logo, ticker, name, and description (e.g., NVDA).  
+- **News Feed**: Clickable headlines (open in browser), formatted timestamps, “View More” button.  
+- **Profile Icon** in header (placeholder).  
+- Clean and modern UI: cards, dividers, and red/green colors for positive/negative values.  
 
-2. Start the app
+---
 
-   ```bash
-   npx expo start
-   ```
+## Project Structure
 
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
+```plaintext
+frontend/
+├── .vscode/                  # Editor configuration (extensions, settings)
+├── app/                      # Expo Router navigation (Home, Explore tabs, layouts)
+│   ├── (tabs)/
+│   │   ├── _layout.tsx       # Layout wrapper for tab navigation
+│   │   ├── explore.tsx       # Tab entry for Explore (renders ExploreScreen)
+│   │   └── index.tsx         # Tab entry for Home
+│   ├── _layout.tsx           # Root layout for Expo Router
+│   └── modal.tsx             # Example modal screen
+├── assets/images/            # Static images & icons (profile icon, splash, etc.)
+├── components/               # Reusable UI components
+│   ├── MarketSnapshot.tsx    # Renders indexes
+│   ├── StockList.tsx         # Tabs: Gainers / Losers / Active
+│   ├── SpotlightCard.tsx     # Spotlight feature stock card
+│   ├── NewsList.tsx          # Financial news list with clickable headlines
+│   └── (themed + ui)         # Extra components (parallax view, text, etc.)
+├── constants/                # Theme and constant configs
+│   └── theme.ts
+├── hooks/                    # Custom React hooks (color scheme, theming)
+├── screens/                  # Page-level screens
+│   └── ExploreScreen.tsx     # Explore page (main UI with sections)
+├── scripts/                  # Utility scripts (reset project, etc.)
+├── services/                 # API layer
+│   └── api.ts                # Fetch functions for backend endpoints
+├── .gitignore                # Ignore node_modules, build, env files
+├── README.md                 # Documentation for frontend
+├── app.json                  # Expo project config
+├── app.tsx                   # App entry point
+├── eslint.config.js          # ESLint config
+├── expo-env.d.ts             # Expo type declarations
+├── package.json              # NPM dependencies
+└── package-lock.json         # Package version lock file
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+---
 
-## Learn more
+## Installation & Running
 
-To learn more about developing your project with Expo, look at the following resources:
+### 1. Clone Repository
+```bash
+git clone https://github.com/TuShArBhArDwA/Stock-Explore.git
+cd Stock-Explore/frontend
+```
+### 2. Install Dependencies
+```bash
+npm install
+```
+### 3. Start Expo Project
+```bash
+npx expo start
+```
+- Press `w` → run in browser (Expo Web).
+- Or scan the QR code in the terminal with the **Expo Go** app on your phone.
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+---
 
-## Join the community
+## Backend Dependency
+This frontend fetches from the backend running locally:
 
-Join our community of developers creating universal apps.
+```text
+http://localhost:4000
+```
+If you deploy the backend (e.g., on `Render/Heroku`), update BASE_URL in `frontend/services/api.ts`:
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+```TypeScript
+// frontend/services/api.ts
+const BASE_URL = "https://your-deployed-backend.onrender.com";
+```
+
+---
+
+## Screenshots
+
+<img width="1918" height="971" alt="image" src="https://github.com/user-attachments/assets/16f043f3-d317-4bed-9188-aafa12a9b7be" />
+
+> *"Home tab (simple welcome screen)."*
+
+<img width="1918" height="900" alt="image" src="https://github.com/user-attachments/assets/f9da4f51-1a1e-496a-bb3b-3b73df169c11" />
+
+> *"Explore tab (with Market Snapshot, Gainers, Spotlight, News)."*
+
+---
+
+## Notes
+- The frontend is intentionally modular (reusable components like `MarketSnapshot`, `StockList`).
+- It uses **React Navigation’s Bottom Tabs** → Home and Explore tabs.
+- Backend is the single source of truth — frontend **never touches Yahoo Finance directly**.
+---
+
+## Future Improvements
+- Add **mini charts** (e.g., sparkline price graphs) in Gainers/Losers list.
+- Add **pull-to-refresh** for live reloading.
+- Add **dark mode** using React Native’s Appearance API.
+- Add a fake “profile/settings” page on Home tab for polish.

@@ -1,6 +1,4 @@
-const BASE_URL = "http://localhost:4000";
-
-// ✅ works in Expo Web since ‘localhost’ resolves to your dev machine
+const BASE_URL = process.env.EXPO_PUBLIC_API_URL;
 
 export async function fetchIndexes() {
   const res = await fetch(`${BASE_URL}/indexes`);

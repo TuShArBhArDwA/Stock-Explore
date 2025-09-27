@@ -11,8 +11,23 @@ const PORT = process.env.PORT || 4000;
 
 app.use(cors());
 app.use(express.json());
-app.use("/", stocksRouter);
+
+app.get("/", (req, res) => {
+  res.json({
+    message: "Stock Explore Backend API is running!",
+    availableEndpoints: [
+      "/indexes",
+      "/gainers",
+      "/losers",
+      "/active",
+      "/spotlight",
+      "/news"
+    ],
+  });
+});
+
+app.use("/api", stocksRouter);
 
 app.listen(PORT, () => {
-  console.log(`🚀 Server running at http://localhost:${PORT}`);
+  console.log(`Server running at http://localhost:${PORT}`);
 });

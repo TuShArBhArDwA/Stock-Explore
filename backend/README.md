@@ -51,6 +51,8 @@ npm run dev
 ```
 Server will start on: `http://localhost:4000`
 
+---
+
 ## Environment Variables
 Create a `.env` file in `backend/`:
 ```bash
